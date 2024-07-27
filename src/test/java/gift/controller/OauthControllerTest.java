@@ -2,7 +2,7 @@ package gift.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import gift.oauth.properties.KakaoProperties;
+import gift.kakaoApi.properties.KakaoProperties;
 import java.net.URI;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,21 +15,21 @@ import org.springframework.web.client.RestClient;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @SpringBootTest
-public class OAuthControllerTest {
+class OAuthControllerTest {
 
     @Autowired
-    private  KakaoProperties properties;
+    private KakaoProperties properties;
 
     private final RestClient client = RestClient.builder().build();
 
     @Test
-    void getUrlTest(){
+    void getUrlTest() {
         UriComponentsBuilder UriBuilder = UriComponentsBuilder.newInstance()
             .scheme("https")
             .host("kauth.kakao.com")
             .path("/oauth/authorize")
             .queryParam("response_type", "code")
-            .queryParam("client_id", properties.clientId()+"1")
+            .queryParam("client_id", properties.clientId() + "1")
             .queryParam("redirect_uri", properties.redirectUrl());
 
         var response = client.get()
@@ -42,7 +42,7 @@ public class OAuthControllerTest {
 
     @Test
     @DisplayName("토큰 발급 테스트")
-    void test(){
+    void test() {
         var url = "https://kauth.kakao.com/oauth/token";
         var body = creatBody();
         var response = client.post()
