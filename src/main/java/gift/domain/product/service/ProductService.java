@@ -29,7 +29,7 @@ public class ProductService {
 
     public ProductService(ProductRepository productRepository,
         CategoryRepository categoryRepository,
-         OptionService optionService) {
+        OptionService optionService) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
         this.optionService = optionService;

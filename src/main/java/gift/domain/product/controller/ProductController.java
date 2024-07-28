@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/products")
-@Tag(name="ProductController" ,description="Product API")
+@Tag(name = "ProductController", description = "Product API")
 public class ProductController {
 
     private final ProductService productService;

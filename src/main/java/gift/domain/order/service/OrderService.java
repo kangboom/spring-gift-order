@@ -50,11 +50,11 @@ public class OrderService {
 
         String kakaoAccessToken = order.getMember().getKakaoAccessToken();
 
-        if(kakaoAccessToken == null){
+        if (kakaoAccessToken == null) {
             return;
         }
 
-        if(kakaoApiService.sendKakaoMessage(kakaoAccessToken, order)){
+        if (kakaoApiService.sendKakaoMessage(kakaoAccessToken, order)) {
             oauthService.registerOrLoginKakoMember(kakaoAccessToken);
         }
     }

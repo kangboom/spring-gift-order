@@ -34,8 +34,9 @@ public class OptionService {
             .toList();
     }
 
-    public Option getOption(Long id){
-        return optionRepository.findById(id).orElseThrow(()->new OptionNotFoundException("찾는 옵션이 존재하지 않습니다."));
+    public Option getOption(Long id) {
+        return optionRepository.findById(id)
+            .orElseThrow(() -> new OptionNotFoundException("찾는 옵션이 존재하지 않습니다."));
     }
 
     @Transactional

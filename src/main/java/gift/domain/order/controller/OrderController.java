@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/order")
-@Tag(name="OrderController" ,description="Order API(JWT 인증 필요)")
+@Tag(name = "OrderController", description = "Order API(JWT 인증 필요)")
 public class OrderController {
 
     private final OrderService orderService;
@@ -31,7 +31,8 @@ public class OrderController {
     @PostMapping()
     @Operation(summary = "주문 하기", description = "상품을 주문합니다.")
     @ApiResponse(responseCode = "201", description = "요청에 성공하였습니다.", content = @Content(mediaType = "application/json"))
-    public ResponseEntity<OrderResponse> createOrder(@Parameter(hidden = true) @LoginMember Member member,
+    public ResponseEntity<OrderResponse> createOrder(
+        @Parameter(hidden = true) @LoginMember Member member,
         @RequestBody OrderRequest orderRequest) {
         OrderResponse response = orderService.createOrder(member, orderRequest);
         return ResponseEntity.status(HttpStatus.CREATED)

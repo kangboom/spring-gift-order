@@ -18,6 +18,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @Service
 public class KakaoApiService {
+
     public static final String BEARER_PREFIX = "Bearer ";
     private final KakaoProperties properties;
     private final ObjectMapper objectMapper;

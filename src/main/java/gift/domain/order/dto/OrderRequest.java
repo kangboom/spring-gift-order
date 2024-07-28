@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 
 @Schema(description = "주문 요청 DTO")
 public class OrderRequest {
+
     @Schema(description = "옵션 이름", example = "1L")
     private Long optionId;
     @Schema(description = "옵션 이름", example = "10")

@@ -32,8 +32,10 @@ public class OAuthService {
 
     public Member registerOrLoginKakoMember(String kakaoAccessToken) {
 
-        KakaoAccount kakaoAccount = kakaoApiService.getKakaoAccount(kakaoAccessToken).kakaoAccount();
-        Member member = memberRepository.findByEmail(kakaoAccount.email()).orElseGet(()->new Member(kakaoAccount.email(),""));
+        KakaoAccount kakaoAccount = kakaoApiService.getKakaoAccount(kakaoAccessToken)
+            .kakaoAccount();
+        Member member = memberRepository.findByEmail(kakaoAccount.email())
+            .orElseGet(() -> new Member(kakaoAccount.email(), ""));
 
         member.updateKakaoAccessToken(kakaoAccessToken);
 
